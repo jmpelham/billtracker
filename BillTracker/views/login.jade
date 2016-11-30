@@ -1,0 +1,44 @@
+extends layout
+
+block content
+	script(type'text/javascript', src='http://code.jquery.com/jquery.min.js')
+
+	h1= "BillTracker[beta]"
+
+	div
+		input(type="button", name="loginButton", value="Login")
+		input(type="button", name="signupButton", value="Sign Up")
+	br
+	div#loginForm
+		form(action="/login", method="post", enctype="multipart/form-data")
+			p Username
+			input(type="text", name="username")
+			p Password
+			input(type="password", name="password")
+			input(type="submit", value="login")
+
+	div#signupForm
+		form(action="/login", method="post", enctype="multipart/form-data")
+			p First Name
+			input(type="text", name="firstName")
+			p Last Name
+			input(type="text", name="lastName")
+			p Email
+			input(type="text", name="email")
+			p Password
+			input(type="password", name="password")
+			p Retype Password
+			input(type="password", name="retypePassword")
+			input(type="submit", value="signup")
+
+	script.
+		$('input[name="loginButton"]').click(function(){
+			$("#loginForm").show();
+			$("#signupForm").hide();
+		});
+		$('input[name="signupButton"]').click(function(){
+			$("#loginForm").hide();
+			$("#signupForm").show();
+		});
+
+

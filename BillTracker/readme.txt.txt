@@ -1,0 +1,1 @@
+set DEBUG=billTracker:* & npm start

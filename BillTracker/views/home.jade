@@ -1,0 +1,24 @@
+extends layout
+
+doctype html
+html
+
+block content
+	h1 Hello #{name}
+	h3 Today is #{date}
+	br
+	h1= "Bills"
+	h2= "This Week"
+	ul
+		each val in bills.thisWeek
+			li= val.billName+" ("+val.dueDate+") - $"+val.billAmount
+	h2= "Next Week"
+	ul
+		each val in bills.nextWeek
+			li= val.billName+" ("+val.dueDate+") - $"+val.billAmount
+	ul
+	div#calendar
+
+	br
+	p Update/Add CSV
+	include upload
